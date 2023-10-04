@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Dashboard Islami</string>
+    <string name="welcome">welcome</string>
+    <string name="assalamualaikum_fulan">Assalamualaikum, Fulan</string>
+    <string name="doa">Doa</string>
+    <string name="zakat">Zakat</string>
+    <string name="dzikir">Dzikir</string>
+    <string name="doaa">Doa</string>
+    <string name="jadwal_sholat">Jadwal Sholat</string>
+    <string name="kajian">Kajian</string>
+    <string name="inspiration">Inspiration</string>
+    <string name="rumah">Rumah</string>
+    <string name="makanan_dan_minuman">Makanan dan Minuman</string>
+    <string name="pagi_dan_malam">Pagi dan Malam</string>
+    <string name="perjalanan">Perjalanan</string>
+    <string name="pagi_amp_malam">Pagi &amp; Malam</string>
+    <string name="sholat">Sholat</string>
+    <string name="etika_baik">Etika Baik</string>
+</resources>
