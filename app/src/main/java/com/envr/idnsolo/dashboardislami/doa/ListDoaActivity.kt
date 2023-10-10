@@ -14,4 +14,9 @@ class ListDoaActivity : AppCompatActivity() {
         binding = ActivityDetailListDoaBinding.inflate(layoutInflater)
         setContentView(binding.root)
     }
+
+    companion object {
+        const val EXTRA_TITLE = "extra_title"
+        const val EXTRA_IMAGE = "extra_image"
+    }
 }
