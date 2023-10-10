@@ -2,11 +2,9 @@ package com.envr.idnsolo.dashboardislami.doa
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.envr.idnsolo.dashboardislami.R
-import com.envr.idnsolo.dashboardislami.databinding.ActivityDetailDoaBinding
 import com.envr.idnsolo.dashboardislami.databinding.ActivityDetailListDoaBinding
 
-class DetailListDoaActivity : AppCompatActivity() {
+class ListDoaActivity : AppCompatActivity() {
 
 
     private lateinit var binding : ActivityDetailListDoaBinding

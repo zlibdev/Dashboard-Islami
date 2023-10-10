@@ -17,7 +17,6 @@ class DoaActivity : AppCompatActivity() {
         val actionBar = supportActionBar
         actionBar!!.title = "Doa Harian"
         actionBar.setDisplayHomeAsUpEnabled(true)
-        actionBar.setDisplayHomeAsUpEnabled()
     }
 
     override fun onSupportNavigateUp(): Boolean {

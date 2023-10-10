@@ -15,7 +15,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_doa_makanan_minuman"
-            android:id="@+id/imgMakananMinuman"/>
+            android:id="@+id/imgDoa"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -25,7 +25,8 @@
             android:textStyle="bold"
             android:fontFamily="@font/poppins_regular"
             android:layout_marginLeft="10dp"
-            android:maxLines="2"/>
+            android:maxLines="2"
+            android:id="@+id/tvDoa"/>
 
 
     </LinearLayout>
