@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".zakat.ZakatActivity"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/TextAppearance.MaterialComponents.Headline5"
+        android:text="Harga Emas - 16 Oct 2023"
+        android:textAlignment="center"
+        android:textColor="@color/colorBlue"/>
+    
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+        <TableRow>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/_1_gram"
+                android:layout_weight="1"
+                android:fontFamily="@font/poppins_regular"
+                android:textAlignment="center"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/rp_1_087_000"
+                android:layout_weight="1"
+                android:fontFamily="@font/poppins_semi_bold" />
+
+        </TableRow>
+        <TableRow>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/_85_gram"
+                android:layout_weight="1"
+                android:fontFamily="@font/poppins_regular"
+                android:textAlignment="center"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/rp_92_395_000"
+                android:layout_weight="1"
+                android:fontFamily="@font/poppins_semi_bold" />
+
+        </TableRow>
+
+    </TableLayout>
+        
+    <com.google.android.material.textfield.TextInputLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="25dp">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Total Harta Keseluruhan"
+            android:inputType="number"
+            android:fontFamily="@font/poppins_regular"
+            android:id="@+id/edt_total_harta_keseluruhan"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hitung Zakat"
+        android:layout_gravity="end"
+        android:layout_marginTop="15dp"
+        android:id="@+id/btn_Hitung">
+    </Button>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp">
+
+        <TableRow>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Status"
+                android:layout_weight="1"
+                android:fontFamily="@font/poppins_regular"
+                android:textAlignment="textStart"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Wajib"
+                android:fontFamily="@font/poppins_semi_bold"
+                android:id="@+id/tvStatus"/>
+
+        </TableRow>
+        <TableRow>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Zakat Yang Dikeluarkan"
+                android:layout_weight="1"
+                android:fontFamily="@font/poppins_regular" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint=""
+                android:layout_weight="1"
+                android:fontFamily="@font/poppins_semi_bold"
+                android:id="@+id/tvZakatYangDikeluarkan"/>
+
+        </TableRow>
+
+    </TableLayout>
+
+</LinearLayout>

@@ -1,5 +1,6 @@
 package com.envr.idnsolo.dashboardislami
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -8,6 +9,7 @@ import com.envr.idnsolo.dashboardislami.doa.DoaActivity
 import com.envr.idnsolo.dashboardislami.inspiration.InspirationData
 import com.envr.idnsolo.dashboardislami.inspiration.InspirationListAdapter
 import com.envr.idnsolo.dashboardislami.inspiration.inspirationModel
+import com.envr.idnsolo.dashboardislami.zakat.ZakatActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -19,13 +21,16 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         initRecyclerViewInspiration()
-        showMenu()
+        moveActivity()
 
     }
 
-    private fun showMenu() {
+    private fun moveActivity() {
         binding.btnDoa.setOnClickListener {
             startActivity(this, DoaActivity::class.java)
+        }
+        binding.btnZakat.setOnClickListener{
+            startActivity(Intent(this, ZakatActivity::class.java))
         }
     }
 
