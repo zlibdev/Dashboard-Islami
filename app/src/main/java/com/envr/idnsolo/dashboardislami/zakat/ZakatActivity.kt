@@ -27,19 +27,18 @@ class ZakatActivity : AppCompatActivity() {
     private fun initHitungZakat() {
         binding.btnHitung.setOnClickListener{
             var isEmptyField = false
+            val emas = 92395000
+            val persen = 0.025
+            val localeID = Locale("in", "ID")
+            val formatRupiah: NumberFormat = NumberFormat.getCurrencyInstance(localeID)
             val totalHarta = binding.edtTotalHartaKeseluruhan.text.trim().toString()
 
             if (totalHarta.isEmpty()) {
-                !isEmptyField
+                isEmptyField = true
                 binding.edtTotalHartaKeseluruhan.error = "Field ini tidak boleh kosong!"
             }
 
             if (!isEmptyField){
-
-                val emas = 92395000
-                val persen = 0.025
-                val localeID = Locale("in", "ID")
-                val formatRupiah: NumberFormat = NumberFormat.getCurrencyInstance(localeID)
 
                 if(totalHarta < emas.toString()){
                     binding.tvStatus.text = "Anda Belum Wajib Zakat"
