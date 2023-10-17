@@ -2,6 +2,8 @@ package com.envr.idnsolo.dashboardislami.zakat
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
+import android.widget.Toast
 import com.envr.idnsolo.dashboardislami.R
 import com.envr.idnsolo.dashboardislami.databinding.ActivityZakatBinding
 import java.text.NumberFormat
@@ -16,9 +18,7 @@ class ZakatActivity : AppCompatActivity() {
         binding = ActivityZakatBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val actionBar = supportActionBar
-        actionBar!!.title = "Zakat"
-        actionBar.setDisplayHomeAsUpEnabled(true)
+        setSupportActionBar(binding.toolbar)
 
         initHitungZakat()
 
@@ -27,8 +27,6 @@ class ZakatActivity : AppCompatActivity() {
     private fun initHitungZakat() {
         binding.btnHitung.setOnClickListener{
             var isEmptyField = false
-            val emas = 92395000
-            val persen = 0.025
             val localeID = Locale("in", "ID")
             val formatRupiah: NumberFormat = NumberFormat.getCurrencyInstance(localeID)
             val totalHarta = binding.edtTotalHartaKeseluruhan.text.trim().toString()
@@ -40,17 +38,28 @@ class ZakatActivity : AppCompatActivity() {
 
             if (!isEmptyField){
 
-                if(totalHarta < emas.toString()){
-                    binding.tvStatus.text = "Anda Belum Wajib Zakat"
-                    binding.tvZakatYangDikeluarkan.text = "0"
+                if(totalHarta.toInt()!! < 92395000){
+                    binding.tvTotalHartaKeseluruhan.text = formatRupiah.format(totalHarta.toInt()!!)
+                    binding.tvStatus.text = "Tidak Wajib Zakat"
+                    binding.tvZakatYangDikeluarkan.text = formatRupiah.format(0)
+                    Toast.makeText(this, "Tidak Wajib Zakat", Toast.LENGTH_SHORT).show()
                 } else {
-                    val zakat = totalHarta.toInt() * persen
+                    binding.tvTotalHartaKeseluruhan.text = formatRupiah.format(totalHarta.toInt()!!)
                     binding.tvStatus.text = "Anda wajib membayar Zakat"
-                    binding.tvZakatYangDikeluarkan.text = formatRupiah.format(zakat)
+                    binding.tvZakatYangDikeluarkan.text = formatRupiah.format(totalHarta.toInt()!! * 0.025)
+                    Toast.makeText(this, "Wajib Zakat", Toast.LENGTH_SHORT).show()
                 }
             }
 
         }
 
     }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == android.R.id.home) {
+        onBackPressed()
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
 }
