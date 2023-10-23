@@ -9,6 +9,7 @@ import com.envr.idnsolo.dashboardislami.doa.DoaActivity
 import com.envr.idnsolo.dashboardislami.inspiration.InspirationData
 import com.envr.idnsolo.dashboardislami.inspiration.InspirationListAdapter
 import com.envr.idnsolo.dashboardislami.inspiration.inspirationModel
+import com.envr.idnsolo.dashboardislami.kajian.KajianActivity
 import com.envr.idnsolo.dashboardislami.zakat.ZakatActivity
 
 class MainActivity : AppCompatActivity() {
@@ -31,6 +32,9 @@ class MainActivity : AppCompatActivity() {
         }
         binding.btnZakat.setOnClickListener{
             startActivity(Intent(this, ZakatActivity::class.java))
+        }
+        binding.btnKajian.setOnClickListener {
+            startActivity(Intent(this, KajianActivity::class.java))
         }
     }
 
