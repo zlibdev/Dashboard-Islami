@@ -49,7 +49,7 @@
                     android:fontFamily="@font/poppins_regular"
                     android:id="@+id/tv_waktu_sholat"/>
 
-                <TextView
+                <TextClock
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAlignment="center"
