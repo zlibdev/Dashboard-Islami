@@ -11,6 +11,8 @@ import com.envr.idnsolo.dashboardislami.inspiration.InspirationListAdapter
 import com.envr.idnsolo.dashboardislami.inspiration.inspirationModel
 import com.envr.idnsolo.dashboardislami.kajian.KajianActivity
 import com.envr.idnsolo.dashboardislami.zakat.ZakatActivity
+import java.text.SimpleDateFormat
+import java.util.Calendar
 
 class MainActivity : AppCompatActivity() {
 
@@ -23,7 +25,20 @@ class MainActivity : AppCompatActivity() {
 
         initRecyclerViewInspiration()
         moveActivity()
+        initTimeForSholat()
 
+    }
+
+    private fun initTimeForSholat() {
+        val timeNow = Calendar.getInstance()
+        val timeFormat = SimpleDateFormat("HH:mm:ss")
+        val time = timeFormat.format(timeNow.time)
+
+        when{
+            time.toInt() in 0 .. 5 -> binding.imgHeader.setImageResource(R.drawable.bg_header_dashboard_night)
+            time.toInt() in 6 .. 11 -> binding.imgHeader.setImageResource(R.drawable.bg_header_dashboard_morning)
+            time.toInt() in 12 .. 17 -> binding.imgHeader.setImageResource(R.drawable.bg_header_dashboard_afternoon)
+            time.toInt() in 18 .. 23 -> binding.imgHeader.setImageResource(R.drawable.bg_header_dashboard_night)        }
     }
 
     private fun moveActivity() {
