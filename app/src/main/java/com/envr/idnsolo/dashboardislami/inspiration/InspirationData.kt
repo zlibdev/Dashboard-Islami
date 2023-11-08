@@ -3,7 +3,7 @@ package com.envr.idnsolo.dashboardislami.inspiration
 import com.envr.idnsolo.dashboardislami.R
 
 object InspirationData {
-    val listdata: inspirationModel
+
     private val InspirationImages = intArrayOf(
         R.drawable.img_inspiration,
         R.drawable.img_inspiration,
@@ -11,7 +11,7 @@ object InspirationData {
 
     )
 
-    val listData : ArrayList<inspirationModel>
+    val listData : ArrayList<InspirationModel>
         get() {
             val list = arrayListOf<InspirationModel>()
             for (position in InspirationImages.indices){

@@ -8,8 +8,9 @@ import com.envr.idnsolo.dashboardislami.databinding.ActivityMainBinding
 import com.envr.idnsolo.dashboardislami.doa.DoaActivity
 import com.envr.idnsolo.dashboardislami.inspiration.InspirationData
 import com.envr.idnsolo.dashboardislami.inspiration.InspirationListAdapter
-import com.envr.idnsolo.dashboardislami.inspiration.inspirationModel
+import com.envr.idnsolo.dashboardislami.inspiration.InspirationModel
 import com.envr.idnsolo.dashboardislami.kajian.KajianActivity
+import com.envr.idnsolo.dashboardislami.shalat.ShalatActivity
 import com.envr.idnsolo.dashboardislami.zakat.ZakatActivity
 import java.text.SimpleDateFormat
 import java.util.Calendar
@@ -51,6 +52,9 @@ class MainActivity : AppCompatActivity() {
         binding.btnKajian.setOnClickListener {
             startActivity(Intent(this, KajianActivity::class.java))
         }
+        binding.btnJadwalsholat.setOnClickListener {
+            startActivity(Intent(this, ShalatActivity::class.java))
+        }
     }
 
     private fun startActivity(mainActivity: MainActivity, java: Class<DoaActivity>) {
@@ -58,12 +62,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initRecyclerViewInspiration() {
-        val list : ArrayList<inspirationModel> = arrayListOf()
-        binding.rvInspiration.setHasFixedSize(true)
-        list.add(InspirationData.listdata)
+        val listInspiration = ArrayList<InspirationModel>()
+        listInspiration.addAll(InspirationData.listData)
         binding.rvInspiration.layoutManager = LinearLayoutManager(this)
-        val inspirationAdapter = InspirationListAdapter(list)
+        val inspirationAdapter = InspirationListAdapter(listInspiration)
         binding.rvInspiration.adapter = inspirationAdapter
-
     }
 }

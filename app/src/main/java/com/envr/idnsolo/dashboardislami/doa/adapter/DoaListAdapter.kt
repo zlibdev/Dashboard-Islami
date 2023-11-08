@@ -44,7 +44,7 @@ class DoaListAdapter (
         holder.itemView.setOnClickListener {
             val intent = Intent(it.context, DetailDoaActivity::class.java)
             intent.putExtra(DetailDoaActivity.EXTRA_DOA, doa)
-            it.context.startActivities(intent)
+            it.context.startActivity(intent)
 
         }
     }
