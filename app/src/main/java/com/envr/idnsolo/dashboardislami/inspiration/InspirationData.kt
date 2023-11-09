@@ -19,7 +19,6 @@ object InspirationData {
                 inspiration.inspirationImage = InspirationImages[position]
                 list.add(inspiration)
             }
-
-            return listData
+            return list
         }
 }
