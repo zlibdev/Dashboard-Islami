@@ -64,6 +64,12 @@ class ListDoaActivity : AppCompatActivity() {
         binding.rvListDoa.adapter = adapter
     }
 
+    //back
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
+    }
+
     companion object {
         const val EXTRA_TITLE = "extra_title"
         const val EXTRA_IMAGE = "extra_image"
