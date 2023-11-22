@@ -52,17 +52,25 @@ class ShalatActivity : AppCompatActivity() {
 
                 try {
 
-                    val responseObject = JSONObject(responseData)
-                    val data = responseObject.getJSONObject("data")
-                    val jadwal = data.getJSONObject("Jadwal")
-                    val lokasi = data.getJSONObject("Lokasi")
-                    binding.tvLocation.text = lokasi.getString("Kota")
-                    binding.tvDatePray.text = jadwal.getString("Tanggal")
-                    binding.tvPrayTimeSubuh.text = jadwal.getString("Subuh")
-                    binding.tvPrayTimeDzuhur.text = jadwal.getString("Dzuhur")
-                    binding.tvPrayTimeAshar.text = jadwal.getString("Ashar")
-                    binding.tvPrayTimeMaghrib.text = jadwal.getString("Maghrib")
-                    binding.tvPrayTimeIsya.text = jadwal.getString("Isya")
+                    // 1. mengambil seluruh data
+                    val responObject = JSONObject(responseData.toString())
+                    // cek apakah data terambil
+                    Log.d("JadwalSholatActivity", "Data JSON: $responObject")
+                    // ambil bagian data
+                    val data = responObject.getJSONObject("data")
+                    // tampilkan lokasi dalam data ke UI
+                    binding.tvLocation.text = data.getString("lokasi")
+                    // mengambil bagian jadwal
+                    val jadwal = data.getJSONObject("jadwal")
+                    // cek apakah data terambil
+                    Log.d("JadwalSholatActivity", "Jadwal : $jadwal")
+                    // tampilkan data jadwal ke komponen UI
+                    binding.tvPrayTimeSubuh.text = jadwal.getString("subuh")
+                    binding.tvPrayTimeSunrise.text = jadwal.getString("terbit")
+                    binding.tvPrayTimeDzuhur.text = jadwal.getString("dzuhur")
+                    binding.tvPrayTimeAshar.text = jadwal.getString("ashar")
+                    binding.tvPrayTimeMaghrib.text = jadwal.getString("maghrib")
+                    binding.tvPrayTimeIsya.text = jadwal.getString("isya")
                 }catch (error : Exception){
                     Toast.makeText(this@ShalatActivity, error.message, Toast.LENGTH_SHORT).show()
                 }
