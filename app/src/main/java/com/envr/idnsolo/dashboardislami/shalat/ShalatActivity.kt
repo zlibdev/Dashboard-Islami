@@ -4,9 +4,15 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
+import android.view.View
+import android.widget.Toast
 import com.envr.idnsolo.dashboardislami.R
 import com.envr.idnsolo.dashboardislami.databinding.ActivityShalatBinding
 import com.loopj.android.http.AsyncHttpClient
+import com.loopj.android.http.AsyncHttpResponseHandler
+import cz.msebera.android.httpclient.Header
+import org.json.JSONObject
+import java.lang.Exception
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Date
@@ -34,6 +40,38 @@ class ShalatActivity : AppCompatActivity() {
         val client = AsyncHttpClient()
         val url = "https://api.myquran.com/v1/sholat/jadwal/$location/$tahun/$bulan/$tanggal"
         Log.d("SholatActivity", "getPrayTimeData: $url")
+
+        client.get(url, object : AsyncHttpResponseHandler(){
+            override fun onSuccess(
+                statusCode: Int,
+                headers: Array<out Header>?,
+                responseBody: ByteArray?
+            ) {
+                binding.pbJadwalSholat.visibility = View.INVISIBLE
+                val responseData = responseBody?.let { String(it) }
+
+                try {
+
+                    val responseObject = JSONObject(responseData)
+                    val data = responseObject.getJSONObject("data")
+                    val jadwal = data.getJSONObject("Jadwal")
+                    val lokasi = data.getJSONObject("Lokasi")
+                }catch (error : Exception){
+                    Toast.makeText(this@ShalatActivity, error.message, Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            override fun onFailure(
+                statusCode: Int,
+                headers: Array<out Header>?,
+                responseBody: ByteArray?,
+                error: Throwable?
+            ) {
+                Toast.makeText(this@ShalatActivity, error?.message, Toast.LENGTH_SHORT).show()
+
+            }
+
+        })
     }
 
     private fun initShalatView() {
