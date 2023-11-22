@@ -56,6 +56,13 @@ class ShalatActivity : AppCompatActivity() {
                     val data = responseObject.getJSONObject("data")
                     val jadwal = data.getJSONObject("Jadwal")
                     val lokasi = data.getJSONObject("Lokasi")
+                    binding.tvLocation.text = lokasi.getString("Kota")
+                    binding.tvDatePray.text = jadwal.getString("Tanggal")
+                    binding.tvPrayTimeSubuh.text = jadwal.getString("Subuh")
+                    binding.tvPrayTimeDzuhur.text = jadwal.getString("Dzuhur")
+                    binding.tvPrayTimeAshar.text = jadwal.getString("Ashar")
+                    binding.tvPrayTimeMaghrib.text = jadwal.getString("Maghrib")
+                    binding.tvPrayTimeIsya.text = jadwal.getString("Isya")
                 }catch (error : Exception){
                     Toast.makeText(this@ShalatActivity, error.message, Toast.LENGTH_SHORT).show()
                 }
